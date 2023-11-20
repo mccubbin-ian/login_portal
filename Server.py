@@ -6,9 +6,8 @@ import os
 
 def validate_user_login(username, password, csv_path="user_cred.csv"):
     csv_path = os.path.abspath(csv_path)
-    print(csv_path)
     try:
-        df = pd.read_csv("user_cred.csv")
+        df = pd.read_csv(csv_path)
         mask = (df["username"] == username) & (df["password"] == password)
 
         if not df[mask].empty:

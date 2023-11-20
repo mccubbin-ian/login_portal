@@ -17,11 +17,12 @@ Usage:
 	
 2)  Collect the login information (username, password)
 
-3)	Start the LoginClient service.
+3)	Start a LoginClient object.
 
-4)  use LoginClient.login(username, password).  This will send a call to the service.
+4)  use response= LoginClient.login(username, password).  This will send a call to the service.
 
-5)  the service will then search through the provided *.csv file for a matching user/pass credential.
+5)  The service will then search through the provided *.csv file for a matching user/pass credential.
 	a)  If found:  The service updates the csv with a timestamp of the last login, and returns a success message to the client
 	b)  If not found:  the service will return a failure message to the client.
-	
+
+NOTE:  the current service is running under localhost.  If there is a different setting, the connection parameter must be modified.
