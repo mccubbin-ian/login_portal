@@ -1,0 +1,27 @@
+Login Portal by Ian McCubbin
+
+This program is a simple login portal that contains both the server and client side portions required for logging in.
+
+Usage:
+
+1)  Start the service portal:
+
+    connection = pika.BlockingConnection(pika.ConnectionParameters("localhost"))
+    channel = connection.channel()
+
+    channel.queue_declare(queue="login_queue")
+    channel.basic_consume(queue="login_queue", on_message_callback=on_request)
+
+    print("Login server is waiting for requests. To exit press CTRL+C")
+    channel.start_consuming()
+	
+2)  Collect the login information (username, password)
+
+3)	Start the LoginClient service.
+
+4)  use LoginClient.login(username, password).  This will send a call to the service.
+
+5)  the service will then search through the provided *.csv file for a matching user/pass credential.
+	a)  If found:  The service updates the csv with a timestamp of the last login, and returns a success message to the client
+	b)  If not found:  the service will return a failure message to the client.
+	
