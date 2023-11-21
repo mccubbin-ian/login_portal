@@ -45,8 +45,8 @@ def main():
     login_client = LoginClient()
 
     # Example usage
-    username = "user1"
-    password = "pwd1"
+    username = "user2"
+    password = "pwd2"
 
     response = login_client.login(username, password)
     print(f"Server response: {response}")

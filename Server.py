@@ -29,6 +29,8 @@ def on_request(ch, method, properties, body):
     body_str = body.decode("utf-8")
     username, password = body_str.split(",")
 
+    print(f"Client login attempt: {username}, {password}")
+
     response = validate_user_login(username, password)
 
     ch.basic_publish(
